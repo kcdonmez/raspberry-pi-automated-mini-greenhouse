@@ -1,4 +1,4 @@
-# Raspberry Codex Pico Automation
+# Raspberry Pi Automated Mini Greenhouse
 
 Python automation project for reading Raspberry Pi Pico sensor data, storing it in SQLite, asking OpenAI for conservative plant-care recommendations, requesting Telegram approval, and controlling relay outputs for a pump and fan.
 
