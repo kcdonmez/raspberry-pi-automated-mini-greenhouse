@@ -336,10 +336,15 @@ def print_latest(db_path: Path) -> None:
     relay1 = "ON" if row["relay1_state"] == RELAY_ON else "OFF"
     relay2 = "ON" if row["relay2_state"] == RELAY_ON else "OFF"
     print(
-        "Saved reading #{id}: {temp:.1f} C, soil={soil_raw} ({soil_v:.3f} V), "
-        "pump/GP15={relay1}, fan/GP14={relay2}".format(
+        "Saved reading #{id}: {temp:.2f} C, LM35 raw={raw_avg:.1f} "
+        "(min={raw_min}, max={raw_max}, {voltage:.4f} V), "
+        "soil={soil_raw} ({soil_v:.3f} V), pump/GP15={relay1}, fan/GP14={relay2}".format(
             id=row["id"],
             temp=row["temperature_c"],
+            raw_avg=row["raw_avg"],
+            raw_min=row["raw_min"],
+            raw_max=row["raw_max"],
+            voltage=row["voltage"],
             soil_raw=row["soil_moisture_raw"] if row["soil_moisture_raw"] is not None else 0,
             soil_v=row["soil_moisture_voltage"] if row["soil_moisture_voltage"] is not None else 0,
             relay1=relay1,
